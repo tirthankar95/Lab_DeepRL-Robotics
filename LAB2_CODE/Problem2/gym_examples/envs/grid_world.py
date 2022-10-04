@@ -111,8 +111,6 @@ class GridWorldEnvTm(gym.Env):
             reward=self.g 
         if terminated1:
             reward=self.t 
-        reward = self.g if terminated0 else self.w  # Binary sparse rewards
-        reward = self.t if terminated1 else self.w  # Binary sparse reward
         observation = self._get_obs()
         info = self._get_info()
 
