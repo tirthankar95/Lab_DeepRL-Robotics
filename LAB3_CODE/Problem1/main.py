@@ -63,19 +63,19 @@ def qlearning(g_,t_,w_,d_,p_):
             y.append(rewardR)
             x.append(_)
     env.close()
+'''
     plt.plot(x,y)
     plt.xlabel('Episodes')
     plt.ylabel('Cumulative Rewards')
     plt.title('Reward as a funciton of Episodes.')
     plt.show()
+'''
     #print(y)
-
-
 
 if __name__=='__main__':
     runs=2
     for run in range(runs):
         print("Run{} ".format(run))
-        #qlearning(50,-50,-1,0.9,0.7)
-        #qlearning(100,-50,-5,0.95,0.1)
+        qlearning(50,-50,-1,0.9,0.7)
+        qlearning(100,-50,-5,0.95,0.1)
         qlearning(50,-100000,-20,0.9,0.7)
