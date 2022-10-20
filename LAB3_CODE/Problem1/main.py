@@ -23,13 +23,16 @@ def qlearning(g_,t_,w_,d_,p_):
             qValue[key[1]][key[0]]=value
             sValue[key[1]][key[0]]=max(value)
             policy[key[1]][key[0]]=direction[np.argmax(value)]
-        print(policy)
-        print(sValue)
+        for _ in policy:
+            print(_)
+        for _ in sValue:
+            print([round(__,2) for __ in _])
+        print()
     env=gym.make('gym_examples/GridWorldTm-v0',size=4,g=g_,t=t_,w=w_,p=p_)
     Q=defaultdict(lambda: np.zeros(env.action_space.n))
-    a_Orig=0.7 # learning rate.
+    a_Orig=0.8 # learning rate.
     epsilonOrig=1 # discovery. 
-    episodes=5000
+    episodes=50000
     aN=env.action_space.n
     x=[]
     y=[]
@@ -79,3 +82,4 @@ if __name__=='__main__':
         qlearning(50,-50,-1,0.9,0.7)
         qlearning(100,-50,-5,0.95,0.1)
         qlearning(50,-100000,-20,0.9,0.7)
+        print('---------------------------')
